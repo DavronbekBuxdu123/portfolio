@@ -8,7 +8,7 @@ type User = {
   telegram: string;
   phone: string;
 };
-export default function page() {
+export default function Page() {
   const supabase = createClient();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

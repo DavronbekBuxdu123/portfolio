@@ -3,7 +3,7 @@ import React from "react";
 import { createClient } from "../utils/supabase/server";
 import Link from "next/link";
 
-export default async function page() {
+export default async function Page() {
   const supabase = await createClient();
   let { data: skills } = await supabase.from("Skills").select("*");
   return (

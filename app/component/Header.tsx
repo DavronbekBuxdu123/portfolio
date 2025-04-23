@@ -1,8 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
 import { BiLogoGithub } from "react-icons/bi";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import useSidebarStore from "../store/useSidebarStore";
