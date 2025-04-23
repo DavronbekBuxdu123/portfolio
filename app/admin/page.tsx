@@ -53,7 +53,7 @@ export default function Page() {
     if (pathname === block) {
       router.push("/admin/login");
     }
-  }, [pathname]);
+  }, [pathname, router]);
 
   useEffect(() => {
     const fetchUser = async () => {

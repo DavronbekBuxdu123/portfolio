@@ -2,7 +2,7 @@
 import { createClient } from "@/app/utils/supabase/client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-const supabase = createClient();
+
 type Login = {
   Parol: string;
   Login: string;
