@@ -99,7 +99,7 @@ export default function Page() {
             <div className="mt-[50px] w-[912px] h-auto">
               <div>
                 <h1 className="text-[32px] font-bold text-white">
-                  So'rov yuborish
+                  So`rov yuborish
                 </h1>
                 <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
               </div>

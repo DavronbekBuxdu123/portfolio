@@ -49,8 +49,8 @@ export default function Page() {
                 <option className="text-black" value="Yuqori">
                   Yuqori
                 </option>
-                <option className="text-black" value="O'rta">
-                  O'rta
+                <option className="text-black" value="O`rta">
+                  O`rta
                 </option>
                 <option className="text-black" value="Past">
                   Past
@@ -101,7 +101,7 @@ export default function Page() {
                     <div
                       className={` w-[10px] mt-2 ml-1 h-[10px] rounded-full ${
                         loy.level === "Past" ? "bg-red-700" : ""
-                      } ${loy.level === "O'rta" ? "bg-amber-300" : ""} ${
+                      } ${loy.level === "O`rta" ? "bg-amber-300" : ""} ${
                         loy.level === "Yuqori" ? "bg-green-500" : ""
                       }`}
                     ></div>

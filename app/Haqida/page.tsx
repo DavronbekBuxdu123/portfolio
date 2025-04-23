@@ -18,16 +18,16 @@ export default async function Page() {
             <div className="sm:text-center lg:text-left border">
               <p className="text-[#FFFFFFB2] text-[18px]">
                 Men Aslonov Davronbek veb dasturchisiman. Yoshim 20 da, Buxoro
-                viloyatida <br /> tug'ilganman. Qiziqarli, ko'p funksionallika
-                ega bo'lgan va kuchli dizaynga ega bo'lgan dasturlar
+                viloyatida <br /> tug`ilganman. Qiziqarli, ko`p funksionallika
+                ega bo`lgan va kuchli dizaynga ega bo'lgan dasturlar
                 <br />
                 yaratishga qiziqaman. <br /> <br /> Mening vazifam veb saytni
                 foydalanuvchilarga qulay, sayt dizayni foydalanuvchilarga jalb
-                qiluvchi <br /> lekin ayni paytda tezkor bo'lishini taminlashdir
+                qiluvchi <br /> lekin ayni paytda tezkor bo`lishini taminlashdir
                 va saytni moslashuvchan kodlar bilan yaratishdir! <br /> Mening
                 maqsadim veb sayt foydalanuvchilariga barcha qismlarini intuitiv
-                va qulay bo'lishga harakat <br /> qilishga qaratilgan. Agar
-                sizga men yaratgan loyihalarim qiziq bo'lsa Loyihalar sahifasi
+                va qulay bo`lishga harakat <br /> qilishga qaratilgan. Agar
+                sizga men yaratgan loyihalarim qiziq bo`lsa Loyihalar sahifasi
                 {">"}a tashrif
                 <br />
                 buyurishingiz mumkin :
@@ -35,7 +35,7 @@ export default async function Page() {
               <br />
               <Link href="./Boglanish">
                 <button className="btn btn-success w-[181px] mt-4 text-center text-white">
-                  Bog'lanish
+                  Bog`lanish
                 </button>
               </Link>
             </div>
@@ -108,7 +108,7 @@ export default async function Page() {
                   <div>
                     <p className="text-white text-[20px] mb-0">Dizayn</p>
                     <p className="text-[#FFFFFFB2]">
-                      Kuchli dizayn va kichik detallargacha <br /> e'tibor
+                      Kuchli dizayn va kichik detallargacha <br /> e`tibor
                       berish
                     </p>
                   </div>

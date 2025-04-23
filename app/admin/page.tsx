@@ -176,13 +176,13 @@ export default function Page() {
   return (
     <div className="max-w-[1040px] mx-auto p-4 text-white">
       <h1 className="text-2xl font-bold text-center mb-4">
-        Portfolio Ma'lumotlar
+        Portfolio Ma`lumotlar
       </h1>
 
       {/* User Data */}
       <div className="bg-gray-800 rounded-lg p-4 mb-8">
         <h2 className="text-xl font-semibold mb-4">
-          Foydalanuvchi Ma'lumotlari
+          Foydalanuvchi Ma`lumotlari
         </h2>
         <input
           value={name}
@@ -276,7 +276,7 @@ export default function Page() {
                 onClick={() => handleDeleteSkill(skill.id)}
                 className="btn btn-danger w-full mt-2"
               >
-                O'chirish
+                O`chirish
               </button>
             </div>
           ))}
