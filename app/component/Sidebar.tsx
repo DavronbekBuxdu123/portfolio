@@ -20,7 +20,7 @@ type User = {
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { isOpen } = useSidebarStore();
+  const { isOpen, toggle } = useSidebarStore();
   const [portfolio, setPortfolio] = useState<User[]>([]);
 
   useEffect(() => {
@@ -42,6 +42,7 @@ export default function Sidebar() {
         <ul className="text-white text-sm items-center gap-2 mt-2  grid grid-cols-2 ">
           <li>
             <Link
+              onClick={toggle}
               style={{ color: "green", textDecoration: "none" }}
               className={
                 pathname === "/" ? "text-success underline " : "text-white"
@@ -53,6 +54,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link
+              onClick={toggle}
               style={{ color: "green", textDecoration: "none" }}
               className={pathname === "/Haqida" ? "text-success" : "text-white"}
               href="/Haqida"
@@ -62,6 +64,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link
+              onClick={toggle}
               style={{ color: "green", textDecoration: "none" }}
               className={
                 pathname === "/Loyihalar" ? "text-success" : "text-white"
@@ -73,6 +76,7 @@ export default function Sidebar() {
           </li>
           <li>
             <Link
+              onClick={toggle}
               style={{ color: "green", textDecoration: "none" }}
               className={
                 pathname === "/Boglanish" ? "text-success" : "text-white"
