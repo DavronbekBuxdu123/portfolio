@@ -11,6 +11,7 @@ type User = {
   github: string;
   phone: string;
   skills: string[];
+  id: string;
 };
 export default function Sidebar() {
   const { isOpen, close } = useSidebarStore();
@@ -44,7 +45,10 @@ export default function Sidebar() {
       </div>
       <div>
         {portfolio?.map((user) => (
-          <p className="text-white text-[18px] mt-2 font-bold ml-5">
+          <p
+            key={user.id}
+            className="text-white text-[18px] mt-2 font-bold ml-5"
+          >
             {user.name}
           </p>
         ))}
@@ -53,7 +57,10 @@ export default function Sidebar() {
           {portfolio?.map((user) => (
             <div className="flex gap-3">
               {JSON.parse(user.skills).map((skil) => (
-                <div className="max-w-[150px] h-[26px]  bg-[#FFFFFF1A] p-[6px] pr-[8px] rounded-[8px] flex items-center justify-center text-[12px] font-normal">
+                <div
+                  key={skil}
+                  className="max-w-[150px] h-[26px]  bg-[#FFFFFF1A] p-[6px] pr-[8px] rounded-[8px] flex items-center justify-center text-[12px] font-normal"
+                >
                   {skil}
                 </div>
               ))}
@@ -74,7 +81,9 @@ export default function Sidebar() {
             <p className="text-white text-[16px] font-normal mb-0">E-pochta</p>
 
             {portfolio?.map((user) => (
-              <p className="text-[#FFFFFFB2] text-[14px] mb-0">{user.email}</p>
+              <p key={user.id} className="text-[#FFFFFFB2] text-[14px] mb-0">
+                {user.email}
+              </p>
             ))}
           </div>
         </div>
@@ -89,7 +98,7 @@ export default function Sidebar() {
           <div className="mt-1">
             <p className="text-white text-[16px] font-normal mb-0">Github</p>
             {portfolio?.map((user) => (
-              <p className="text-[#FFFFFFB2] text-[14px] mb-0 ">
+              <p key={user.id} className="text-[#FFFFFFB2] text-[14px] mb-0 ">
                 {user.github}
               </p>
             ))}
@@ -106,7 +115,7 @@ export default function Sidebar() {
           <div className="mt-2">
             <p className="text-white text-[16px] font-normal  mb-0">Telegram</p>
             {portfolio?.map((user) => (
-              <p className="text-[#FFFFFFB2] text-[14px] mb-0">
+              <p key={user.id} className="text-[#FFFFFFB2] text-[14px] mb-0">
                 {user.telegram}
               </p>
             ))}
@@ -125,7 +134,9 @@ export default function Sidebar() {
               Telefon raqam
             </p>
             {portfolio?.map((user) => (
-              <p className="text-[#FFFFFFB2] text-[14px] mb-0">{user.phone}</p>
+              <p key={user.id} className="text-[#FFFFFFB2] text-[14px] mb-0">
+                {user.phone}
+              </p>
             ))}
           </div>
         </div>
