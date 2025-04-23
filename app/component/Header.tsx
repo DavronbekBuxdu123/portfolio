@@ -10,21 +10,21 @@ export default function Header() {
   const { toggle } = useSidebarStore();
 
   return (
-    <div className="h-[48px] border-b border-gray-700 w-full  bg-[#1b1b1b] mx-auto flex justify-between items-center px-4 rounded-t-2xl">
+    <div className="h-[48px] border-b border-gray-700 w-full bg-[#1b1b1b] mx-auto flex justify-between items-center px-4 rounded-t-2xl">
       <div className="flex items-center w-full justify-between max-w-[1540px] mx-auto">
         <div className="flex items-center gap-x-5">
           <IoReorderThreeOutline
             onClick={toggle}
-            className="size-6 text-white"
+            className="size-6 text-white cursor-pointer lg:hidden"
           />
           <div>
-            <h4 className="text-white mt-1 ">
+            <h4 className="text-white mt-1">
               Davronbek.<span className="text-success">Uz</span>
             </h4>
           </div>
         </div>
         <div className="p-4">
-          <ul className="text-white flex items-center gap-5 mt-2">
+          <ul className="text-white  items-center gap-5 mt-2 hidden lg:flex">
             <li>
               <Link
                 style={{ color: "green", textDecoration: "none" }}

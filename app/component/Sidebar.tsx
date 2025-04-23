@@ -4,6 +4,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import useSidebarStore from "../store/useSidebarStore";
 import { createClient } from "../utils/supabase/client";
+import Link from "next/link";
+import { BiLogoGithub } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
 type User = {
   name: string;
@@ -16,6 +19,7 @@ type User = {
 };
 
 export default function Sidebar() {
+  const pathname = usePathname();
   const { isOpen } = useSidebarStore();
   const [portfolio, setPortfolio] = useState<User[]>([]);
 
@@ -30,11 +34,64 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`absolute top-0 left-0 h-full max-w-[400px] z-50 transition-transform duration-300 bg-[#1b1b1b] p-4  ${
+      className={` absolute top-0 left-0 h-full max-w-[400px] z-50    transition-transform duration-300 bg-[#1b1b1b] p-4  ${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      }   lg:translate-x-0 `}
     >
-      <div className="flex items-center justify-evenly border-[#FFFFFF40] text-white"></div>
+      <div className="lg:hidden h-[100px] max-w-[300px]   text-white">
+        <ul className="text-white text-sm items-center gap-2 mt-2  grid grid-cols-2 ">
+          <li>
+            <Link
+              style={{ color: "green", textDecoration: "none" }}
+              className={
+                pathname === "/" ? "text-success underline " : "text-white"
+              }
+              href="/"
+            >
+              Bosh sahifa
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ color: "green", textDecoration: "none" }}
+              className={pathname === "/Haqida" ? "text-success" : "text-white"}
+              href="/Haqida"
+            >
+              Haqida
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ color: "green", textDecoration: "none" }}
+              className={
+                pathname === "/Loyihalar" ? "text-success" : "text-white"
+              }
+              href="/Loyihalar"
+            >
+              Loyihalar
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ color: "green", textDecoration: "none" }}
+              className={
+                pathname === "/Boglanish" ? "text-success" : "text-white"
+              }
+              href="/Boglanish"
+            >
+              Bog`lanish
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="text-white"
+              href="https://github.com/DavronbekBuxdu123"
+            >
+              <BiLogoGithub size={24} />
+            </Link>
+          </li>
+        </ul>
+      </div>
 
       <div className=" ">
         <Image
@@ -58,11 +115,11 @@ export default function Sidebar() {
 
         <div className="w-[259px] flex gap-[10px] flex-wrap justify-items-start ml-5 text-white">
           {portfolio?.map((user) => (
-            <div key={user.id + "-skills"} className="flex gap-3">
+            <div key={user.id + "-skills"} className="flex flex-wrap gap-3">
               {JSON.parse(user.skills).map((skil: string) => (
                 <div
                   key={user.id + skil}
-                  className="max-w-[150px] h-[26px] bg-[#FFFFFF1A] p-[6px] pr-[8px] rounded-[8px] flex items-center justify-center text-[12px] font-normal"
+                  className="max-w-[150px] h-[26px] bg-[#FFFFFF1A] p-[6px] pr-[8px] rounded-[8px] flex  items-center justify-center text-[12px] font-normal"
                 >
                   {skil}
                 </div>
@@ -72,7 +129,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="p-[10px] flex flex-col items-start justify-start">
+      <div className="p-[10px] flex flex-col items-start justify-start ml-[10px]">
         <div className="flex items-center gap-4 ">
           <Image src="/email.svg" width={44} height={44} alt="logo" />
           <div className="flex items-start justify-center flex-col ">

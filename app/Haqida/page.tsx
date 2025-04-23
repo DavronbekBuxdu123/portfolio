@@ -77,8 +77,8 @@ export default async function Page() {
               </h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
-            <div className=" flex flex-wrap gap-[24px] justify-center">
-              <div className="group">
+            <div className=" flex flex-wrap gap-[24px] justify-center lg:ml-[-50px]">
+              <div className="group ">
                 <div className="lg:w-[444px] sm:max-w-[500px] h-[124px] group-hover:scale-[1.05] transition duration-300 cursor-pointer border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
                   <div>
                     <Image

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { CiFilter } from "react-icons/ci";
+
 import { FaEye, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { createClient } from "../utils/supabase/client";
