@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { createClient } from "../utils/supabase/client";
 import Link from "next/link";
 type User = {
+  id: string;
   email: string;
   telegram: string;
   phone: string;
@@ -58,7 +59,9 @@ export default function Page() {
                 />
                 <p className="text-white text-[20px]">E-pochta</p>
                 {portfolio?.map((user) => (
-                  <p className="text-gray-400">{user.email}</p>
+                  <p key={user.id} className="text-gray-400">
+                    {user.email}
+                  </p>
                 ))}
               </div>
               <div className="w-[290px] h-[190px] border border-amber-50 rounded-[12px] bg-[#1B1B1B] flex flex-col items-center justify-evenly">
@@ -70,7 +73,9 @@ export default function Page() {
                 />
                 <p className="text-white text-[20px]">Telegram</p>
                 {portfolio?.map((user) => (
-                  <p className="text-gray-400">{user.telegram}</p>
+                  <p key={user.id} className="text-gray-400">
+                    {user.telegram}
+                  </p>
                 ))}
               </div>
               <div className="w-[290px] h-[190px] border border-amber-50 rounded-[12px] bg-[#1B1B1B] flex flex-col items-center justify-evenly">
@@ -82,7 +87,9 @@ export default function Page() {
                 />
                 <p className="text-white text-[20px]">Telefon raqam</p>
                 {portfolio?.map((user) => (
-                  <p className="text-gray-400">{user.phone}</p>
+                  <p key={user.id} className="text-gray-400">
+                    {user.phone}
+                  </p>
                 ))}
               </div>
             </div>
