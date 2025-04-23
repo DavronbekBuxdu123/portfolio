@@ -18,8 +18,8 @@ export default async function Page() {
             <div className="sm:text-center lg:text-left border">
               <p className="text-[#FFFFFFB2] text-[18px]">
                 Men Aslonov Davronbek veb dasturchisiman. Yoshim 20 da, Buxoro
-                viloyatida <br /> tug'ilganman. Qiziqarli, ko’p funksionallika
-                ega bo’lgan va kuchli dizaynga ega bo’lgan dasturlar
+                viloyatida <br /> tug'ilganman. Qiziqarli, ko'p funksionallika
+                ega bo'lgan va kuchli dizaynga ega bo'lgan dasturlar
                 <br />
                 yaratishga qiziqaman. <br /> <br /> Mening vazifam veb saytni
                 foydalanuvchilarga qulay, sayt dizayni foydalanuvchilarga jalb
@@ -27,7 +27,7 @@ export default async function Page() {
                 va saytni moslashuvchan kodlar bilan yaratishdir! <br /> Mening
                 maqsadim veb sayt foydalanuvchilariga barcha qismlarini intuitiv
                 va qulay bo'lishga harakat <br /> qilishga qaratilgan. Agar
-                sizga men yaratgan loyihalarim qiziq bo’lsa Loyihalar sahifasi
+                sizga men yaratgan loyihalarim qiziq bo'lsa Loyihalar sahifasi
                 {">"}a tashrif
                 <br />
                 buyurishingiz mumkin :
