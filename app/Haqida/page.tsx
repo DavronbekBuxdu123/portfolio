@@ -7,15 +7,15 @@ export default async function Page() {
   const supabase = await createClient();
   const { data: skills } = await supabase.from("Skills").select("*");
   return (
-    <div className="">
-      <div className="bg-[url(/Body.svg)] bg-cover bg-center max-w-[1540px] mx-auto flex items-center justify-center">
-        <div className=" min-h-screen  max-w-[1040px] mx-auto">
-          <div className="p-10 flex flex-col gap-[24px] ">
+    <div className="min-h-screen bg-[url(/Body.svg)] bg-cover bg-center">
+      <div className="max-w-[1540px] mx-auto">
+        <div className="min-h-screen max-w-[1040px] mx-auto">
+          <div className="p-10 flex flex-col gap-[24px]">
             <div>
-              <h1 className="text-[32px] font-bold  text-white">Men haqimda</h1>
+              <h1 className="text-[32px] font-bold text-white">Men haqimda</h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
-            <div className="sm:text-center lg:text-left border">
+            <div className="sm:text-center lg:text-left ">
               <p className="text-[#FFFFFFB2] text-[18px]">
                 Men Aslonov Davronbek veb dasturchisiman. Yoshim 20 da, Buxoro
                 viloyatida <br /> tug`ilganman. Qiziqarli, ko`p funksionallika
@@ -27,8 +27,11 @@ export default async function Page() {
                 va saytni moslashuvchan kodlar bilan yaratishdir! <br /> Mening
                 maqsadim veb sayt foydalanuvchilariga barcha qismlarini intuitiv
                 va qulay bo`lishga harakat <br /> qilishga qaratilgan. Agar
-                sizga men yaratgan loyihalarim qiziq bo`lsa Loyihalar sahifasi
-                {">"}a tashrif
+                sizga men yaratgan loyihalarim qiziq bo`lsa{" "}
+                <Link className="text-success" href="./Loyihalar">
+                  Loyihalar
+                </Link>{" "}
+                sahifasi tashrif
                 <br />
                 buyurishingiz mumkin :
               </p>{" "}
@@ -40,18 +43,18 @@ export default async function Page() {
               </Link>
             </div>
           </div>
-          <div className=" p-10 flex flex-col  gap-[24px] mt-5">
+          <div className="p-10 flex flex-col gap-[24px] mt-5">
             <div>
               <h1 className="text-[32px] font-bold text-white">
-                Asbob-Uskunalar
+                Texnologiyalar
               </h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
-            <div className="flex flex-wrap gap-[20px] w-[912px]">
+            <div className="flex flex-wrap gap-[20px] justify-center sm:w-full lg:w-[912px]">
               {skills?.map((skil, index) => (
                 <div
                   key={index}
-                  className="w-[213px] h-[124px] border border-[#FFFFFF40] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center relative overflow-hidden group "
+                  className="w-[213px] h-[124px] border border-[#FFFFFF40] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center relative overflow-hidden group"
                 >
                   <Image
                     width={213}
@@ -68,20 +71,20 @@ export default async function Page() {
             </div>
           </div>
           <div className="">
-            <div className="p-10 ">
+            <div className="p-10">
               <h1 className="text-[32px] font-bold text-white ">
                 Men nimalar qila olaman
               </h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
-            <div className="px-10 flex flex-wrap  gap-[24px]">
+            <div className=" flex flex-wrap gap-[24px] justify-center">
               <div className="group">
-                <div className="w-[444px]  h-[124px]  group-hover:scale-[1.05] transition duration-300 cursor-pointer border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
+                <div className="lg:w-[444px] sm:max-w-[500px] h-[124px] group-hover:scale-[1.05] transition duration-300 cursor-pointer border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
                   <div>
                     <Image
                       className="mt-2"
                       src="/0.svg"
-                      alt="Background"
+                      alt="Seo"
                       width={64}
                       height={64}
                     />
@@ -96,13 +99,12 @@ export default async function Page() {
                 </div>
               </div>
               <div className="group">
-                {" "}
-                <div className="w-[444px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
+                <div className="lg:w-[444px] sm:max-w-[500px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
                   <div>
                     <Image
                       className="mt-2"
                       src="/2.svg"
-                      alt="Background"
+                      alt="Design"
                       width={64}
                       height={64}
                     />
@@ -117,12 +119,12 @@ export default async function Page() {
                 </div>
               </div>
               <div className="group">
-                <div className="w-[444px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
+                <div className="lg:w-[444px] sm:max-w-[500px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
                   <div>
                     <Image
                       className="mt-2"
                       src="/1.svg"
-                      alt="Background"
+                      alt="Quality"
                       width={64}
                       height={64}
                     />
@@ -136,12 +138,12 @@ export default async function Page() {
                 </div>
               </div>
               <div className="group">
-                <div className="w-[444px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
+                <div className="lg:w-[444px] sm:max-w-[500px] h-[124px] group-hover:scale-[1.05] transition duration-300 border border-[#FFFFFF40] bg-[#1B1B1B] flex rounded-[12px] p-[20px] gap-[14px]">
                   <div>
                     <Image
                       className="mt-2"
                       src="/3.svg"
-                      alt="Background"
+                      alt="Speed"
                       width={64}
                       height={64}
                     />
@@ -161,15 +163,13 @@ export default async function Page() {
               <h1 className="text-[32px] font-bold text-white">Mijozlar</h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
-            <div className=" flex flex-wrap gap-[20px] mt-5">
+            <div className="flex flex-wrap gap-[20px] mt-5 justify-center">
               <div className="w-[213px] border border-[#FFFFFF40] h-[124px] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center">
-                <Image src="/4.svg" alt="Background" width={64} height={64} />
+                <Image src="/4.svg" alt="Client 1" width={64} height={64} />
               </div>
               <div className="w-[213px] border border-[#FFFFFF40] h-[124px] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center">
-                <Image src="/5.svg" alt="Background" width={64} height={64} />
+                <Image src="/5.svg" alt="Client 2" width={64} height={64} />
               </div>
-              <div className="w-[213px] border border-[#FFFFFF40] h-[124px] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center"></div>
-              <div className="w-[213px] border border-[#FFFFFF40] h-[124px] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center"></div>
             </div>
           </div>
         </div>

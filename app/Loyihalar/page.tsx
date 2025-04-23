@@ -6,6 +6,7 @@ import { CiFilter } from "react-icons/ci";
 import { FaEye, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { createClient } from "../utils/supabase/client";
+
 interface Loyiha {
   id: number;
   name: string;
@@ -32,138 +33,119 @@ export default function Page() {
   const filtered = filter
     ? loyihalar.filter((loy) => loy.level === filter)
     : loyihalar;
+
   return (
-    <div>
-      <div className="bg-[url(/Body.svg)] bg-cover min-h-screen bg-center max-w-[1540px] mx-auto flex items-center justify-center">
-        {" "}
-        <div className=" max-w-[1040px]    mt-5  space-y-[24px]">
+    <div className="bg-[url(/Body.svg)] bg-cover min-h-screen bg-center px-4">
+      <div className="max-w-[1540px] w-full mx-auto flex justify-center pt-10 pb-20">
+        <div className="w-full max-w-[1040px] space-y-10">
           <div>
             <h1 className="text-[32px] font-bold text-white">Loyihalar</h1>
-            <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
+            <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px] mt-1"></div>
           </div>
-          <div className="text-white flex items-center justify-between  max-w-[900px]">
-            <div>
-              <button className="flex items-center  gap-x-2 bg-[#1B1B1B] border  w-[140px] h-[44px] rounded-[6px] pt-[10px] pb-[10px] pl-[24px] pr-[24px]">
-                Filtrlash <CiFilter size={20} />
-              </button>
-            </div>
-            <div className="space-x-5 ">
-              <select
-                onChange={(e) => setFilter(e.target.value)}
-                className=" border  ml-2 w-[140px] h-[44px] rounded-[6px] pt-[10px] pb-[10px] pl-[24px] pr-[24px]"
-              >
-                <option className="text-black" value="">
-                  Barchasi
-                </option>
-                <option className="text-black" value="Yuqori">
-                  Yuqori
-                </option>
-                <option className="text-black" value="O`rta">
-                  O`rta
-                </option>
-                <option className="text-black" value="Past">
-                  Past
-                </option>
-              </select>
-            </div>
+
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white gap-4">
+            <select
+              onChange={(e) => setFilter(e.target.value)}
+              className="border w-[140px] h-[44px] rounded-[6px] px-6 "
+            >
+              <option className="text-black" value="">
+                Barchasi
+              </option>
+              <option className="text-black" value="Yuqori">
+                Yuqori
+              </option>
+              <option className="text-black" value="O`rta">
+                O`rta
+              </option>
+              <option className="text-black" value="Past">
+                Past
+              </option>
+            </select>
           </div>
-          <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-x-[20px] space-y-2">
+
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6">
             {filtered?.map((loy) => (
               <div
                 key={loy.id}
-                className="space-y-2 max-w-[444px] mx-auto group relative"
+                className="space-y-2 w-full group relative bg-[#1B1B1B] rounded-lg p-2"
               >
-                <div>
+                <div className="relative">
                   <Image
                     width={444}
-                    height={100}
-                    className={`rounded-lg group-hover:blur-xs`}
+                    height={200}
+                    className="rounded-lg object-cover"
                     src={loy.image}
-                    alt=""
+                    alt={loy.name}
                   />
-                  <div
-                    className={`hidden group-hover:block transition duration-300`}
-                  >
-                    {" "}
-                    <div className="absolute  text-black top-2 right-2 gap-2 flex ">
-                      <div className="bg-white p-1 rounded-md">
-                        <Link href={loy.projectUrl}>
-                          {" "}
-                          <FaEye size={20} />{" "}
-                        </Link>
-                      </div>
-                      <div className="bg-white p-1 rounded-md">
-                        {" "}
-                        <Link href={loy.projectGitUrl}>
-                          {" "}
-                          <FaGithub size={20} />
-                        </Link>
-                      </div>
-                    </div>
+                  <div className="hidden group-hover:flex transition absolute top-2 right-2 gap-2">
+                    <Link
+                      href={loy.projectUrl}
+                      className="bg-white p-2 rounded-md"
+                    >
+                      <FaEye size={20} />
+                    </Link>
+                    <Link
+                      href={loy.projectGitUrl}
+                      className="bg-white p-2 rounded-md"
+                    >
+                      <FaGithub size={20} />
+                    </Link>
                   </div>
                 </div>
 
-                <div className="text-white flex items-start justify-between ">
-                  <div>
-                    {" "}
-                    <p>{loy.name}</p>
-                  </div>
-                  <div className="flex w-[70px] h-[20px] ">
-                    <div>
-                      <p className="">{loy.level} </p>
-                    </div>
+                <div className="text-white flex justify-between items-center">
+                  <p>{loy.name}</p>
+                  <div className="flex items-center gap-1">
+                    <p className="mb-0">{loy.level}</p>
                     <div
-                      className={` w-[10px] mt-2 ml-1 h-[10px] rounded-full ${
-                        loy.level === "Past" ? "bg-red-700" : ""
-                      } ${loy.level === "O`rta" ? "bg-amber-300" : ""} ${
-                        loy.level === "Yuqori" ? "bg-green-500" : ""
+                      className={`w-3 h-3 rounded-full ${
+                        loy.level === "Past"
+                          ? "bg-red-700"
+                          : loy.level === "O`rta"
+                          ? "bg-amber-300"
+                          : "bg-green-500"
                       }`}
                     ></div>
                   </div>
                 </div>
-                <div className="grid grid-cols-4 text-green-700">
-                  {JSON.parse(loy.skills).map((skil: string, index: number) => (
-                    <div key={index}>#{skil}</div>
+
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 text-green-600 text-sm">
+                  {JSON.parse(loy.skills).map((skill: string, i: number) => (
+                    <div key={i}>#{skill}</div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          <div className="w-[912px] h-[208px] mt-[50px] border rounded-[12px] bg-[#1B1B1B] flex items-center justify-evenly">
-            <div>
-              <Image
-                src="/telegram1.svg"
-                alt="Background"
-                width={168}
-                height={168}
-              />
-            </div>
-            <div>
-              <p className="text-white text-[28px]">Telegram kanal</p>
+
+          <div className="w-full bg-[#1B1B1B] border rounded-[12px] p-6 flex flex-col lg:flex-row items-center justify-between gap-6">
+            <Image
+              src="/telegram1.svg"
+              alt="Telegram"
+              width={168}
+              height={168}
+            />
+            <div className="text-white space-y-2 text-center lg:text-left">
+              <p className="text-[28px]">Telegram kanal</p>
               <p className="text-gray-400">
                 Barcha loyihalarimni telegram kanalimda <br /> ham kuzatib
                 borishingiz mumkin!
               </p>
               <Link href="https://t.me/Davronbek_IT_blog">
-                <button className="w-[190px] h-[43px] btn btn-success mt-[24px] text-center text-white">
+                <button className="btn btn-success mt-4 w-full lg:w-[190px] h-[43px] text-white">
                   Tashrif buyurish
                 </button>
               </Link>
             </div>
-            <div className="flex   ">
+            <div className="relative">
               <Image
-                className="absolute  "
+                className="absolute top-0 left-0"
                 src="/wind.svg"
-                alt="Background"
+                alt=""
                 width={144}
                 height={144}
               />
-              <Image
-                src="/mega.svg"
-                alt="Background"
-                width={206}
-                height={192}
-              />
+              <Image src="/mega.svg" alt="" width={206} height={192} />
             </div>
           </div>
         </div>
