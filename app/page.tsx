@@ -4,7 +4,7 @@ import { createClient } from "./utils/supabase/server";
 
 export default async function page() {
   const supabase = await createClient();
-  let { data: portfolio } = await supabase.from("Portfolio1").select("*");
+  const { data: portfolio } = await supabase.from("Portfolio1").select("*");
   console.log(portfolio);
   return (
     <div className="w-full  mx-auto bg-[url(/Body.svg)] bg-cover bg-center overflow-hidden h-[93.3vh]">
@@ -14,12 +14,14 @@ export default async function page() {
             <h1 className="text-[28px]  font-bold text-white">
               Assalomu alaykum, Men{" "}
               {portfolio?.map((user) => (
-                <span className="text-[#39965F]">{user.name}</span>
+                <span key={user.id} className="text-[#39965F]">
+                  {user.name}
+                </span>
               ))}
               <span className="text-white">man</span>
             </h1>
             {portfolio?.map((user) => (
-              <p className="text-[16px]  text-[#FFFFFFB2] ">
+              <p key={user.id} className="text-[16px]  text-[#FFFFFFB2] ">
                 {user.description}
               </p>
             ))}

@@ -7,7 +7,7 @@ import useSidebarStore from "../store/useSidebarStore";
 
 export default function Header() {
   const pathname = usePathname();
-  const { toggle }: any = useSidebarStore();
+  const { toggle } = useSidebarStore();
 
   return (
     <div className="h-[48px] border-b border-gray-700 w-full  bg-[#1b1b1b] mx-auto flex justify-between items-center px-4 rounded-t-2xl">

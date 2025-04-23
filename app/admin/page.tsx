@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { IoCloudUploadOutline } from "react-icons/io5";
 import { createClient } from "../utils/supabase/client";
-import { BASE_IMG_URL } from "../helpers/image_url";
+import Image from "next/image";
 const supabase = createClient();
 type Skill = {
   id: string;
@@ -74,6 +73,8 @@ export default function Page() {
     fetchProjects();
   }, []);
 
+  console.log(skillData);
+
   const uploadFile = async (file: File, type: "skills" | "loyihalar") => {
     try {
       console.log(type);
@@ -143,7 +144,7 @@ export default function Page() {
       }
     } else {
       try {
-        const { data } = await supabase
+        await supabase
           .from("Loyihalar")
           .update({
             name: projectName,
@@ -161,7 +162,7 @@ export default function Page() {
     }
   };
   const DeleteProject = async (id: string) => {
-    const { error } = await supabase.from("Loyihalar").delete().eq("id", id);
+    await supabase.from("Loyihalar").delete().eq("id", id);
   };
   const UpdateProject = async (project: Project) => {
     setProjectLevel(project.level);
@@ -266,11 +267,13 @@ export default function Page() {
               key={skill.id}
               className="bg-gray-700 rounded-lg p-2 text-center"
             >
-              <img
-                src={skill.image}
+              <Image
+                width={100}
+                height={100}
+                src={skill?.image}
                 alt={skill.description}
                 className="mx-auto h-20 object-contain"
-              />
+              />{" "}
               <p className="mt-2 text-sm">{skill.description}</p>
               <button
                 onClick={() => handleDeleteSkill(skill.id)}
@@ -335,7 +338,9 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {projectData.map((project) => (
             <div key={project.id} className="bg-gray-700 rounded-lg p-4">
-              <img
+              <Image
+                width={444}
+                height={100}
                 src={project.image}
                 alt="project"
                 className="h-32 w-full object-cover rounded mb-2"

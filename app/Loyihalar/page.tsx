@@ -6,9 +6,18 @@ import { CiFilter } from "react-icons/ci";
 import { FaEye, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { createClient } from "../utils/supabase/client";
+interface Loyiha {
+  id: number;
+  name: string;
+  level: string;
+  image: string;
+  projectUrl: string;
+  projectGitUrl: string;
+  skills: string;
+}
 
 export default function Page() {
-  const [loyihalar, setLoyihalar] = useState<any[]>([]);
+  const [loyihalar, setLoyihalar] = useState<Loyiha[]>([]);
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
@@ -60,9 +69,14 @@ export default function Page() {
           </div>
           <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-x-[20px] space-y-2">
             {filtered?.map((loy) => (
-              <div className="space-y-2 max-w-[444px] mx-auto group relative">
+              <div
+                key={loy.id}
+                className="space-y-2 max-w-[444px] mx-auto group relative"
+              >
                 <div>
-                  <img
+                  <Image
+                    width={444}
+                    height={100}
                     className={`rounded-lg group-hover:blur-xs`}
                     src={loy.image}
                     alt=""
@@ -109,7 +123,7 @@ export default function Page() {
                 </div>
                 <div className="grid grid-cols-4 text-green-700">
                   {JSON.parse(loy.skills).map((skil: string, index: number) => (
-                    <div>#{skil}</div>
+                    <div key={index}>#{skil}</div>
                   ))}
                 </div>
               </div>

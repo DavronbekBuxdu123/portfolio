@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
         hostname: "gfeucoulfqzixutkmviu.supabase.co",
       },
     ],
+    dangerouslyAllowSVG: true,
+    formats: ["image/avif", "image/webp"],
   },
 };
 

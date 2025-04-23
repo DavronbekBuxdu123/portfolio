@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function Page() {
   const supabase = await createClient();
-  let { data: skills } = await supabase.from("Skills").select("*");
+  const { data: skills } = await supabase.from("Skills").select("*");
   return (
     <div className="">
       <div className="bg-[url(/Body.svg)] bg-cover bg-center max-w-[1540px] mx-auto flex items-center justify-center">
@@ -19,7 +19,7 @@ export default async function Page() {
               <p className="text-[#FFFFFFB2] text-[18px]">
                 Men Aslonov Davronbek veb dasturchisiman. Yoshim 20 da, Buxoro
                 viloyatida <br /> tug`ilganman. Qiziqarli, ko`p funksionallika
-                ega bo`lgan va kuchli dizaynga ega bo'lgan dasturlar
+                ega bo`lgan va kuchli dizaynga ega bo`lgan dasturlar
                 <br />
                 yaratishga qiziqaman. <br /> <br /> Mening vazifam veb saytni
                 foydalanuvchilarga qulay, sayt dizayni foydalanuvchilarga jalb
@@ -53,7 +53,9 @@ export default async function Page() {
                   key={index}
                   className="w-[213px] h-[124px] border border-[#FFFFFF40] bg-[#1B1B1B] rounded-[12px] flex items-center justify-center relative overflow-hidden group "
                 >
-                  <img
+                  <Image
+                    width={213}
+                    height={124}
                     src={skil.image}
                     alt="skill image"
                     className="w-[64px] h-[64px] transition duration-300 group-hover:opacity-0"
