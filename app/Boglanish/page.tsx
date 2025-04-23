@@ -45,7 +45,10 @@ export default function Page() {
           <div>
             {" "}
             <div className="mx-auto">
-              <h1 className="text-[32px] font-bold text-white">Bog'lanish</h1>
+              <h1 className="text-[32px] font-bold text-white">
+                {" "}
+                Bog&apos;lanish
+              </h1>
               <div className="w-[112px] h-[8px] bg-[#39965F] rounded-[10px]"></div>
             </div>
             <div className="flex gap-x-[20px] items-center mt-5">
@@ -129,7 +132,7 @@ export default function Page() {
                     <textarea
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
-                      placeholder="O'z izohingizni yozing..."
+                      placeholder="Izohingizni yozing..."
                       className="form-control w-full h-[150px] bg-[#1B1B1B] border border-white rounded-md p-2 mt-1 "
                       name=""
                       id=""
