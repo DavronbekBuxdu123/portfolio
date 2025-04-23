@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { createClient } from "../utils/supabase/client";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+
 const supabase = createClient();
 type Skill = {
   id: string;
@@ -43,7 +45,15 @@ export default function Page() {
 
   const [skillData, setSkillData] = useState<Skill[]>([]);
   const [projectData, setProjectData] = useState<Project[]>([]);
-  console.log(projectImage);
+  const block = "/admin";
+  const pathname = usePathname();
+  const router = useRouter();
+  console.log(pathname);
+  useEffect(() => {
+    if (pathname === block) {
+      router.push("/admin/login");
+    }
+  }, [pathname]);
 
   useEffect(() => {
     const fetchUser = async () => {
