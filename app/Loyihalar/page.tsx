@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-
 import { FaEye, FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { createClient } from "../utils/supabase/client";
@@ -46,7 +45,7 @@ export default function Page() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white gap-4">
             <select
               onChange={(e) => setFilter(e.target.value)}
-              className="border w-[140px] h-[44px] rounded-[6px] px-6 "
+              className="border w-[140px] h-[44px] rounded-[6px] px-6"
             >
               <option className="text-black" value="">
                 Barchasi
@@ -67,28 +66,32 @@ export default function Page() {
             {filtered?.map((loy) => (
               <div
                 key={loy.id}
-                className="space-y-2 w-full group relative bg-[#1B1B1B] rounded-lg p-2"
+                className="space-y-2 w-full bg-[#1B1B1B] rounded-lg p-2 z-10 group relative"
               >
                 <div className="relative">
                   <Image
                     width={444}
                     height={200}
-                    className="rounded-lg object-cover"
+                    className="rounded-lg object-cover group-hover:blur-xs"
                     src={loy.image}
                     alt={loy.name}
                   />
-                  <div className="hidden group-hover:flex transition absolute top-2 right-2 gap-2">
+
+                  {/* Hover bo‘lganda ikonka ko‘rinadi, rasm esa xira bo‘ladi */}
+                  <div className="hidden group-hover:flex transition duration-300 absolute top-2 right-2 gap-2 z-20">
                     <Link
                       href={loy.projectUrl}
                       className="bg-white p-2 rounded-md"
+                      target="_blank"
                     >
-                      <FaEye size={20} />
+                      <FaEye size={20} className="text-black" />
                     </Link>
                     <Link
                       href={loy.projectGitUrl}
                       className="bg-white p-2 rounded-md"
+                      target="_blank"
                     >
-                      <FaGithub size={20} />
+                      <FaGithub size={20} className="text-black" />
                     </Link>
                   </div>
                 </div>
@@ -118,6 +121,7 @@ export default function Page() {
             ))}
           </div>
 
+          {/* Telegram CTA */}
           <div className="w-full bg-[#1B1B1B] border rounded-[12px] p-6 flex flex-col lg:flex-row items-center justify-between gap-6">
             <Image
               src="/telegram1.svg"
