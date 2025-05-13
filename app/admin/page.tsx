@@ -50,10 +50,11 @@ export default function Page() {
   const router = useRouter();
   console.log(pathname);
   useEffect(() => {
-    if (pathname === block) {
+    const user = localStorage.getItem("user");
+    if (!user) {
       router.push("/admin/login");
     }
-  }, [pathname, router]);
+  }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
