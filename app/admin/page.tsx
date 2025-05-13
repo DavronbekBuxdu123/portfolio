@@ -45,7 +45,7 @@ export default function Page() {
 
   const [skillData, setSkillData] = useState<Skill[]>([]);
   const [projectData, setProjectData] = useState<Project[]>([]);
-  const block = "/admin";
+
   const pathname = usePathname();
   const router = useRouter();
   console.log(pathname);
@@ -54,7 +54,7 @@ export default function Page() {
     if (!user) {
       router.push("/admin/login");
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const fetchUser = async () => {
